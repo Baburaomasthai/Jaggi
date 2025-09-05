@@ -788,15 +788,17 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
     
     if 'awaiting_caption' in context.user_data:
         if text == '/cancel':
-            await update.message.reply_text("Caption setting unchanged.")
+            await update.message.reply_text("❌ Caption setting unchanged.")
+            context.user_data.pop('awaiting_caption', None)
         else:
             update_user_settings(user_id, 'custom_caption', text)
-            await update.message.reply_text("✅ Custom caption has been set.")
-        context.user_data.pop('awaiting_caption', None)
+            await update.message.reply_text("✅ Custom caption has been set!")
+            context.user_data.pop('awaiting_caption', None)
         
     elif 'awaiting_channel' in context.user_data:
         if text == '/cancel':
-            await update.message.reply_text("Channel addition cancelled.")
+            await update.message.reply_text("❌ Channel addition cancelled.")
+            context.user_data.pop('awaiting_channel', None)
         else:
             # Try to extract channel ID from text
             channel_input = text.strip()
@@ -811,6 +813,7 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
                     channel_username = chat.username
                 except Exception as e:
                     await update.message.reply_text(f"❌ Error: Could not find channel {channel_input}")
+                    context.user_data.pop('awaiting_channel', None)
                     return
             else:
                 try:
@@ -819,16 +822,17 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
                     channel_username = chat.username
                 except (ValueError, Exception):
                     await update.message.reply_text("❌ Please provide a valid channel ID or username.")
+                    context.user_data.pop('awaiting_channel', None)
                     return
             
             add_force_sub_channel(channel_id, channel_username, user_id)
             await update.message.reply_text(f"✅ Channel @{channel_username} has been added to force sub.")
-        
-        context.user_data.pop('awaiting_channel', None)
+            context.user_data.pop('awaiting_channel', None)
         
     elif 'awaiting_auto_delete_time' in context.user_data:
         if text == '/cancel':
-            await update.message.reply_text("Auto delete time unchanged.")
+            await update.message.reply_text("❌ Auto delete time unchanged.")
+            context.user_data.pop('awaiting_auto_delete_time', None)
         else:
             try:
                 time = int(text)
@@ -837,12 +841,11 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
                     return
                 
                 update_user_settings(user_id, 'auto_delete_time', time)
-                await update.message.reply_text(f"✅ Auto delete time has been set to {time} minutes.")
+                await update.message.reply_text(f"✅ Auto delete time has been set to {time} minutes!")
+                context.user_data.pop('awaiting_auto_delete_time', None)
             except ValueError:
                 await update.message.reply_text("❌ Please enter a valid number.")
-        
-        context.user_data.pop('awaiting_auto_delete_time', None)
-
+      
 # Broadcast command (moderators only)
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id

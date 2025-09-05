@@ -15,10 +15,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Bot token from BotFather
-TOKEN = "YOUR_BOT_TOKEN_HERE"
+TOKEN = "8379945498:AAGtfGofVnPnoN8K_ayirg4-ifdeBgooLSk"
 
 # Add your user ID as moderator (replace with your actual user ID)
-MODERATOR_IDS = [123456789]  # Add your user ID here
+MODERATOR_IDS = [6651946441]  # Add your user ID here
 
 # Database setup
 def init_db():

@@ -786,19 +786,23 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
     user_id = update.effective_user.id
     text = update.message.text
     
+    # Check if user is in any setting mode
     if 'awaiting_caption' in context.user_data:
         if text == '/cancel':
             await update.message.reply_text("❌ Caption setting unchanged.")
             context.user_data.pop('awaiting_caption', None)
+            return
         else:
             update_user_settings(user_id, 'custom_caption', text)
             await update.message.reply_text("✅ Custom caption has been set!")
             context.user_data.pop('awaiting_caption', None)
+            return
         
     elif 'awaiting_channel' in context.user_data:
         if text == '/cancel':
             await update.message.reply_text("❌ Channel addition cancelled.")
             context.user_data.pop('awaiting_channel', None)
+            return
         else:
             # Try to extract channel ID from text
             channel_input = text.strip()
@@ -828,11 +832,13 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
             add_force_sub_channel(channel_id, channel_username, user_id)
             await update.message.reply_text(f"✅ Channel @{channel_username} has been added to force sub.")
             context.user_data.pop('awaiting_channel', None)
+            return
         
     elif 'awaiting_auto_delete_time' in context.user_data:
         if text == '/cancel':
             await update.message.reply_text("❌ Auto delete time unchanged.")
             context.user_data.pop('awaiting_auto_delete_time', None)
+            return
         else:
             try:
                 time = int(text)
@@ -843,8 +849,13 @@ async def handle_settings_input(update: Update, context: ContextTypes.DEFAULT_TY
                 update_user_settings(user_id, 'auto_delete_time', time)
                 await update.message.reply_text(f"✅ Auto delete time has been set to {time} minutes!")
                 context.user_data.pop('awaiting_auto_delete_time', None)
+                return
             except ValueError:
                 await update.message.reply_text("❌ Please enter a valid number.")
+                return
+    
+    # If not in any setting mode, handle as menu command
+    await handle_menu(update, context)
       
 # Broadcast command (moderators only)
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):

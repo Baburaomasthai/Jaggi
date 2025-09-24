@@ -1,20 +1,3 @@
-from flask import Flask
-import threading
-import os
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "✅ 𝑇𝑟𝑦𝑖𝑛𝑔 𝑇𝑜 𝑇𝑎𝑐𝑘𝑙𝑒 𝑆𝑒𝑡𝑏𝑎𝑐𝑘 𝑇𝐺 - https://t.me/MrJaggiX!"
-
-def run_flask():
-    port = int(os.environ.get("PORT", 5000))  
-    app.run(host="0.0.0.0", port=port)
-
-# Flask ko background thread me start karo
-threading.Thread(target=run_flask).start()
-
 import json
 import os
 from typing import Dict, Any, List
@@ -31,7 +14,7 @@ from bson import ObjectId
 
 # =================== MONGODB CONFIG ===================
 
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")  # Add your MongoDB URI to environment variables
+MONGO_URI = "mongodb+srv://JaggiX9:JaggiX9@cluster0.p2yvakt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Add your MongoDB URI to environment variables
 DB_NAME = "study_bot"
 COLLECTION_NAME = "materials"
 
@@ -42,8 +25,8 @@ materials_collection = db[COLLECTION_NAME]
 
 # =================== CONFIG ===================
 
-TOKEN = os.getenv("BOT_TOKEN")
-OWNER_ID = int(os.getenv("ADMIN_ID"))
+TOKEN = "7931829452:AAEF2zYePG5w3EY3cRwsv6jqxZawH_0HXKI"
+OWNER_ID = "6651946441"
 DATA_FILE = "materials.json"
 
 # =================== DATA MODEL ===================

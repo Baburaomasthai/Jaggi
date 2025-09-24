@@ -14,7 +14,7 @@ from bson import ObjectId
 
 # =================== MONGODB CONFIG ===================
 
-MONGO_URI = "mongodb+srv://JaggiX9:JaggiX9@cluster0.p2yvakt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"  # Add your MongoDB URI to environment variables
+MONGO_URI = "mongodb://JaggiX9:JaggiX9@cluster0-shard-00-00.p2yvakt.mongodb.net:27017,cluster0-shard-00-01.p2yvakt.mongodb.net:27017,cluster0-shard-00-02.p2yvakt.mongodb.net:27017/?ssl=true&replicaSet=atlas-1fjopd-shard-0&authSource=admin&retryWrites=true&w=majority"  # Add your MongoDB URI to environment variables
 DB_NAME = "study_bot"
 COLLECTION_NAME = "materials"
 

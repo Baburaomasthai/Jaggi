@@ -666,9 +666,9 @@ async def register_additional_handlers(bot):
 # Main function to run the bot
 async def main():
     # Get credentials from environment variables
-    api_id = int(os.getenv('TELEGRAM_API_ID', '123456'))
-    api_hash = os.getenv('TELEGRAM_API_HASH', 'your_api_hash')
-    bot_token = os.getenv('TELEGRAM_BOT_TOKEN', 'your_bot_token')
+    api_id = "28093492"
+    api_hash = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"
+    bot_token = "7931829452:AAEF2zYePG5w3EY3cRwsv6jqxZawH_0HXKI"
     
     if api_id == '123456' or api_hash == 'your_api_hash' or bot_token == 'your_bot_token':
         print("Please set TELEGRAM_API_ID, TELEGRAM_API_HASH, and TELEGRAM_BOT_TOKEN environment variables")

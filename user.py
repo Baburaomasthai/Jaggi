@@ -22,7 +22,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Admin configuration
-ADMIN_USER_IDS = [123456789]  # Replace with your Telegram User ID
+ADMIN_USER_IDS = [6651946441]  # Replace with your Telegram User ID
 
 class TelegramChannelDB:
     """Telegram Channel-based Database System"""
@@ -1007,10 +1007,10 @@ async def main():
     """Main function"""
     
     # Get credentials from environment
-    api_id = int(os.getenv('TELEGRAM_API_ID', '123456'))
-    api_hash = os.getenv('TELEGRAM_API_HASH', 'your_api_hash')
-    bot_token = os.getenv('TELEGRAM_BOT_TOKEN', 'your_bot_token')
-    db_channel_id = int(os.getenv('DB_CHANNEL_ID', '-1001234567890'))
+    api_id = "28093492"
+    api_hash = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"
+    bot_token = "7931829452:AAEF2zYePG5w3EY3cRwsv6jqxZawH_0HXKI"
+    db_channel_id = "-1002565934191"
     
     # Validate credentials
     if any(x in ['123456', 'your_api_hash', 'your_bot_token'] for x in [str(api_id), api_hash, bot_token]):

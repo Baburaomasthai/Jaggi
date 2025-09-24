@@ -1101,7 +1101,7 @@ async def main():
     if admin_env:
         ADMIN_USER_IDS = [int(id.strip()) for id in admin_env.split(',')]
     
-    force_sub_env = @MrJaggiX
+    force_sub_env = "@MrJaggiX"
     if force_sub_env:
         FORCE_SUB_CHANNEL = force_sub_env
     

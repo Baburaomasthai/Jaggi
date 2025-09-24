@@ -23,10 +23,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Admin configuration - APNA USER ID DALEN
-ADMIN_USER_IDS = [123456789]  # YOUR_USER_ID_HERE
+ADMIN_USER_IDS = [6651946441]  # YOUR_USER_ID_HERE
 
 # Force subscribe channel - APNA CHANNEL ID DALEN
-FORCE_SUB_CHANNEL = "-1001234567890"  # YOUR_CHANNEL_ID_HERE
+FORCE_SUB_CHANNEL = "-1002515948965"  # YOUR_CHANNEL_ID_HERE
 
 class TelegramChannelDB:
     """Telegram Channel-based Database System"""
@@ -950,18 +950,18 @@ async def main():
     """Main function"""
     
     # Get credentials from environment
-    api_id = int(os.getenv('TELEGRAM_API_ID', '123456'))
-    api_hash = os.getenv('TELEGRAM_API_HASH', 'your_api_hash')
-    bot_token = os.getenv('TELEGRAM_BOT_TOKEN', 'your_bot_token')
-    db_channel_id = int(os.getenv('DB_CHANNEL_ID', '-1001234567890'))
+    api_id = "28093492"
+    api_hash = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"
+    bot_token = "7931829452:AAEF2zYePG5w3EY3cRwsv6jqxZawH_0HXKI"
+    db_channel_id = "-1002565934191"
     
     # Update with your actual IDs
     global ADMIN_USER_IDS, FORCE_SUB_CHANNEL
-    admin_env = os.getenv('ADMIN_USER_IDS', '')
+    admin_env = "6651946441"
     if admin_env:
         ADMIN_USER_IDS = [int(id.strip()) for id in admin_env.split(',')]
     
-    force_sub_env = os.getenv('FORCE_SUB_CHANNEL', '')
+    force_sub_env = "-1002515948965"
     if force_sub_env:
         FORCE_SUB_CHANNEL = force_sub_env
     

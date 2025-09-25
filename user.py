@@ -22,8 +22,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Admin configuration - REPLACE WITH YOUR ACTUAL VALUES
-ADMIN_USER_IDS = [123456789]  # Replace with your user ID
-FORCE_SUB_CHANNEL = "@YourChannel"  # Replace with your channel username
+ADMIN_USER_IDS = [6651946441]  # Replace with your user ID
+FORCE_SUB_CHANNEL = "@MrJaggiX"  # Replace with your channel username
 
 class SQLiteDatabase:
     """SQLite Database System for Bot"""
@@ -1312,9 +1312,9 @@ async def main():
     """Main function"""
     
     # REPLACE THESE WITH YOUR ACTUAL VALUES
-    api_id = 12345678  # Your API ID from https://my.telegram.org
-    api_hash = "your_api_hash_here"  # Your API Hash
-    bot_token = "your_bot_token_here"  # Your Bot Token from @BotFather
+    api_id = 28093492  # Your API ID from https://my.telegram.org
+    api_hash = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"  # Your API Hash
+    bot_token = "7931829452:AAEskMBAsT6G6bAhD5sS3vBRu4smmYgAU_o"  # Your Bot Token from @BotFather
     
     global ADMIN_USER_IDS, FORCE_SUB_CHANNEL
     

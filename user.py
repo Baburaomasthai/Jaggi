@@ -1029,6 +1029,37 @@ Now add target channels to start forwarding!
             return text
         
         processed_text = text
+
+        async def process_message_text(self, user_id: int, text: str) -> str:
+    """Process message text with replacements"""
+    if not text:
+        return text
+    
+    processed_text = text
+
+    # Remove markdown bold (**Hello** → Hello)
+    processed_text = re.sub(r"\*\*(.*?)\*\*", r"\1", processed_text)
+
+    # Apply word replacements
+    if user_id in self.word_replacements:
+        for original, replacement in self.word_replacements[user_id].items():
+            processed_text = processed_text.replace(original, replacement)
+    
+    # Apply link replacements
+    if user_id in self.link_replacements:
+        for original, replacement in self.link_replacements[user_id].items():
+            processed_text = processed_text.replace(original, replacement)
+    
+    # Apply settings
+    settings = self.forward_settings.get(user_id, self.default_settings)
+    
+    if settings.get('remove_usernames', False):
+        processed_text = re.sub(r'@\w+', '', processed_text)
+    
+    if settings.get('remove_links', False):
+        processed_text = re.sub(r'https?://\S+', '', processed_text)
+    
+    return processed_text.strip()
         
         # Apply word replacements
         if user_id in self.word_replacements:

@@ -613,17 +613,23 @@ Send your phone number now or use: `/login +919876543210`
         """
         
         self.login_attempts[user.id] = {'step': 'waiting_phone'}
-        await event.edit(login_text)
+        await event.reply(login_text)
 
     async def start_telegram_login(self, user, phone_number, event):
-        """Start real Telegram login process"""
-        try:
-            session_name = f"sessions/user_{user.id}"
-            os.makedirs("sessions", exist_ok=True)
-            
-            user_client = TelegramClient(session_name, self.client.api_id, self.client.api_hash)
-            await user_client.connect()
-            sent_code = await user_client.send_code_request(phone_number)
+    """Start real Telegram login process"""
+    try:
+        logger.info(f"Starting login for phone: {phone_number}")
+        
+        session_name = f"sessions/user_{user.id}"
+        os.makedirs("sessions", exist_ok=True)
+        
+        user_client = TelegramClient(session_name, self.client.api_id, self.client.api_hash)
+        await user_client.connect()
+        
+        logger.info(f"Connected to user client for {phone_number}")
+        
+        sent_code = await user_client.send_code_request(phone_number)
+        logger.info(f"Verification code sent successfully to {phone_number}")
             
             self.login_attempts[user.id] = {
                 'step': 'waiting_code',

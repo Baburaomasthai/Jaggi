@@ -1259,7 +1259,7 @@ Use the buttons below to get started!
             await self.show_force_subscribe(event)
             return
         
-        menu_text = "🏠 **Main Menu**\n\nSelect an option:"
+        menu_text = "🏠 **Main Menu**\n\nSend /login command & for more click on 📖 Help guide:"
         
         buttons = []
         
@@ -1272,7 +1272,7 @@ Use the buttons below to get started!
                 [Button.inline("🔄 Start/Stop Forwarding", b"show_dashboard")]
             ])
         else:
-            buttons.append([Button.inline("🔐 Login with Phone", b"show_login_options")])
+            # buttons.append([Button.inline("🔐 Login with Phone", b"show_login_options")])
         
         buttons.append([Button.inline("📖 Help Guide", b"show_help")])
         
@@ -1437,7 +1437,7 @@ Messages will now be automatically forwarded from source to target channels.
 **How it works:**
 📥 Source: Your user account reads messages
 📤 Target: Bot sends messages (must be admin)
-🔄 Formatting: All text styles preserved
+🔄 Start Forwarding: Everything Auto Forwarded
             """
             
             await event.edit(success_text)

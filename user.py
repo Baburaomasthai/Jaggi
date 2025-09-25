@@ -23,10 +23,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Admin configuration
-ADMIN_USER_IDS = [123456789]  # YOUR_USER_ID_HERE
+ADMIN_USER_IDS = [6651946441]  # YOUR_USER_ID_HERE
 
 # Force subscribe channel
-FORCE_SUB_CHANNEL = "@YourChannel"  # YOUR_CHANNEL_USERNAME_HERE
+FORCE_SUB_CHANNEL = "@MrJaggiX"  # YOUR_CHANNEL_USERNAME_HERE
 
 class SQLiteDatabase:
     """SQLite Database System for Bot"""
@@ -1829,9 +1829,9 @@ Click the button below to begin!
 
 if __name__ == "__main__":
     # Configuration - REPLACE WITH YOUR VALUES
-    API_ID = 12345678  # YOUR_API_ID_HERE
-    API_HASH = "your_api_hash_here"  # YOUR_API_HASH_HERE
-    BOT_TOKEN = "your_bot_token_here"  # YOUR_BOT_TOKEN_HERE
+    API_ID = 28093492  # YOUR_API_ID_HERE
+    API_HASH = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"  # YOUR_API_HASH_HERE
+    BOT_TOKEN = "7931829452:AAEskMBAsT6G6bAhD5sS3vBRu4smmYgAU_o"  # YOUR_BOT_TOKEN_HERE
     
     # Validate configuration
     if API_ID == 12345678 or API_HASH == "your_api_hash_here" or BOT_TOKEN == "your_bot_token_here":

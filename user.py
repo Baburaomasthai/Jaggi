@@ -630,16 +630,16 @@ Send your phone number now or use: `/login +919876543210`
         
         sent_code = await user_client.send_code_request(phone_number)
         logger.info(f"Verification code sent successfully to {phone_number}")
-            
-            self.login_attempts[user.id] = {
-                'step': 'waiting_code',
-                'phone_number': phone_number,
-                'phone_code_hash': sent_code.phone_code_hash,
-                'user_client': user_client,
-                'attempt_time': datetime.now().isoformat()
-            }
-            
-            login_text = f"""
+        
+        self.login_attempts[user.id] = {
+            'step': 'waiting_code',
+            'phone_number': phone_number,
+            'phone_code_hash': sent_code.phone_code_hash,
+            'user_client': user_client,
+            'attempt_time': datetime.now().isoformat()
+        }
+        
+        login_text = f"""
 📱 **Verification Code Sent!**
 
 **Phone:** `{phone_number}`
@@ -649,39 +649,31 @@ Please check your Telegram app for the verification code.
 **Send the code in format:** `AUTOX123456`
 
 Replace 123456 with your actual code.
-            """
-            
-            buttons = [
-                [Button.inline("🔄 Resend Code", b"resend_code")],
-                [Button.inline("❌ Cancel", b"cancel_login")]
-            ]
-            
-            # Use reply instead of edit for new messages
-            if hasattr(event, 'edit') and event.message.id:
-                await event.edit(login_text, buttons=buttons)
-            else:
-                await event.reply(login_text, buttons=buttons)
-            
-        except Exception as e:
-            logger.error(f"Error starting login: {e}")
-            error_msg = "❌ Error sending verification code. Please check the phone number format."
-            
-            # Safe error message display
-            try:
-                if hasattr(event, 'edit') and event.message.id:
-                    await event.edit(error_msg)
-                else:
-                    await event.reply(error_msg)
-            except:
-                await event.reply(error_msg)
-            
-            if user.id in self.login_attempts:
-                if 'user_client' in self.login_attempts[user.id]:
-                    try:
-                        await self.login_attempts[user.id]['user_client'].disconnect()
-                    except:
-                        pass
-                del self.login_attempts[user.id]
+        """
+        
+        buttons = [
+            [Button.inline("🔄 Resend Code", b"resend_code")],
+            [Button.inline("❌ Cancel", b"cancel_login")]
+        ]
+        
+        # Always use reply for new messages - don't try to edit
+        await event.reply(login_text, buttons=buttons)
+        
+    except Exception as e:
+        logger.error(f"Error starting login: {e}")
+        error_msg = "❌ Error sending verification code. Please try again with a valid phone number."
+        
+        # Safe error message display - always use reply
+        await event.reply(error_msg)
+        
+        # Cleanup
+        if user.id in self.login_attempts:
+            if 'user_client' in self.login_attempts[user.id]:
+                try:
+                    await self.login_attempts[user.id]['user_client'].disconnect()
+                except:
+                    pass
+            del self.login_attempts[user.id]
 
     async def resend_code(self, event):
         """Resend verification code"""

@@ -1272,7 +1272,7 @@ Use the buttons below to get started!
                 [Button.inline("🔄 Start/Stop Forwarding", b"show_dashboard")]
             ])
         else:
-            buttons.append([Button.inline("🔐 Login with Phone", b"handle_login")])
+            buttons.append([Button.inline("🔐 Login with Phone", b"show_login_options")])
         
         buttons.append([Button.inline("📖 Help Guide", b"show_help")])
         

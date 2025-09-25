@@ -22,10 +22,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Admin configuration
-ADMIN_USER_IDS = [123456789]  # YOUR_USER_ID_HERE
+ADMIN_USER_IDS = [6651946441]  # YOUR_USER_ID_HERE
 
 # Force subscribe channel
-FORCE_SUB_CHANNEL = "@YourChannel"  # YOUR_CHANNEL_USERNAME_HERE
+FORCE_SUB_CHANNEL = "@MrJaggiX"  # YOUR_CHANNEL_USERNAME_HERE
 
 class SQLiteDatabase:
     """SQLite Database System for Bot"""
@@ -1840,15 +1840,15 @@ Use buttons below to navigate:
 
 if __name__ == "__main__":
     # Configuration - REPLACE WITH YOUR VALUES
-    API_ID = 1234567  # Your API ID from https://my.telegram.org
-    API_HASH = "your_api_hash_here"  # Your API Hash
-    BOT_TOKEN = "your_bot_token_here"  # Your Bot Token from @BotFather
+    API_ID = 28093492  # Your API ID from https://my.telegram.org
+    API_HASH = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"  # Your API Hash
+    BOT_TOKEN = "7931829452:AAEskMBAsT6G6bAhD5sS3vBRu4smmYgAU_o"  # Your Bot Token from @BotFather
     
     # Update admin ID
-    ADMIN_USER_IDS = [123456789]  # Your Telegram User ID
+    ADMIN_USER_IDS = [6651946441]  # Your Telegram User ID
     
     # Update force subscribe channel
-    FORCE_SUB_CHANNEL = "@YourChannel"  # Your channel username
+    FORCE_SUB_CHANNEL = "@MrJaggiX"  # Your channel username
     
     # Create and run bot
     bot = AdvancedAutoForwardBot(API_ID, API_HASH, BOT_TOKEN)

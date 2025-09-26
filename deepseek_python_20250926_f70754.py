@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 ADMIN_USER_IDS = [6651946441]  # Replace with your user ID
 
 # Force subscribe channel (optional)
-FORCE_SUB_CHANNEL = "@YourChannel"  # Replace with your channel username
+FORCE_SUB_CHANNEL = "@MrJaggiX"  # Replace with your channel username
 
 class AdvancedSQLiteDatabase:
     """Advanced SQLite Database System with connection pooling"""

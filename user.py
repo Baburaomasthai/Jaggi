@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 ADMIN_USER_IDS = [6651946441]  # Replace with your user ID
 
 # Force subscribe channel (optional)
-FORCE_SUB_CHANNEL = "@YourChannel"  # Replace with your channel username
+FORCE_SUB_CHANNEL = "@MrJaggiX"  # Replace with your channel username
 
 class AdvancedSQLiteDatabase:
     """Advanced SQLite Database System with connection pooling"""
@@ -1830,9 +1830,9 @@ Use the buttons below to begin or type `/help` for more information.
             logger.error(f"❌ Shutdown error: {e}")
 
 # Bot configuration
-API_ID = 29920180  # Replace with your API ID
-API_HASH = "26c4b10bde45f442b9a7fa7e6a6c5a94"  # Replace with your API Hash
-BOT_TOKEN = "7158511618:AAH7b9Y8zJv3Yp2vJc9K0wQ8X2Z6Q6a8b9c"  # Replace with your bot token
+API_ID = 28093492  # Replace with your API ID
+API_HASH = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"  # Replace with your API Hash
+BOT_TOKEN = "7931829452:AAEskMBAsT6G6bAhD5sS3vBRu4smmYgAU_o"  # Replace with your bot token
 
 async def main():
     """Enhanced main function with error handling"""

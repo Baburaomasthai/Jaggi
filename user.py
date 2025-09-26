@@ -22,10 +22,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Admin configuration
-ADMIN_USER_IDS = [123456789]  # YOUR_USER_ID_HERE
+ADMIN_USER_IDS = [6651946441]  # YOUR_USER_ID_HERE
 
 # Force subscribe channel
-FORCE_SUB_CHANNEL = "@YourChannel"  # YOUR_CHANNEL_USERNAME_HERE
+FORCE_SUB_CHANNEL = "@MrJaggiX"  # YOUR_CHANNEL_USERNAME_HERE
 
 class SQLiteDatabase:
     """SQLite Database System for Bot"""
@@ -1307,16 +1307,16 @@ Use the buttons below to get started!
 async def main():
     """Main function"""
     
-    api_id = int(os.getenv('TELEGRAM_API_ID', '123456'))
-    api_hash = os.getenv('TELEGRAM_API_HASH', 'your_api_hash')
-    bot_token = os.getenv('TELEGRAM_BOT_TOKEN', 'your_bot_token')
+    api_id = "28093492"
+    api_hash = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"
+    bot_token = "7357029909:AAFmG1PDBALWCFriHKpCvm48011PubTBMMM"
     
     global ADMIN_USER_IDS, FORCE_SUB_CHANNEL
-    admin_env = os.getenv('ADMIN_USER_IDS', '')
+    admin_env = "6651946441"
     if admin_env:
         ADMIN_USER_IDS = [int(id.strip()) for id in admin_env.split(',')]
     
-    force_sub_env = os.getenv('FORCE_SUB_CHANNEL', '')
+    force_sub_env = "@MrJaggiX"
     if force_sub_env:
         FORCE_SUB_CHANNEL = force_sub_env
     

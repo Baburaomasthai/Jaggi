@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 ADMIN_USER_IDS = [6651946441]
 
 # Force subscribe channel (optional)
-FORCE_SUB_CHANNEL = "@YourChannel"
+FORCE_SUB_CHANNEL = "@MrJaggiX"
 
 class AdvancedSQLiteDatabase:
     """Advanced SQLite Database System with connection pooling"""
@@ -1672,9 +1672,9 @@ You can login again anytime using `/login`
             logger.error(f"❌ Shutdown error: {e}")
 
 # Bot configuration - REPLACE WITH YOUR VALUES
-API_ID = 29920180  # Your API ID from my.telegram.org
-API_HASH = "26c4b10bde45f442b9a7fa7e6a6c5a94"  # Your API Hash from my.telegram.org
-BOT_TOKEN = "7158511618:AAH7b9Y8zJv3Yp2vJc9K0wQ8X2Z6Q6a8b9c"  # Your bot token from @BotFather
+API_ID = 28093492  # Your API ID from my.telegram.org
+API_HASH = "2d18ff97ebdfc2f1f3a2596c48e3b4e4"  # Your API Hash from my.telegram.org
+BOT_TOKEN = "7357029909:AAFmG1PDBALWCFriHKpCvm48011PubTBMMM"  # Your bot token from @BotFather
 
 async def main():
     """Enhanced main function with error handling"""
